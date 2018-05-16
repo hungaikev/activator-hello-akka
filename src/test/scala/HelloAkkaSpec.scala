@@ -13,8 +13,7 @@ class HelloAkkaSpec(_system: ActorSystem)
   def this() = this(ActorSystem("HelloAkkaSpec"))
 
   override def afterAll: Unit = {
-    system.shutdown()
-    system.awaitTermination(10.seconds)
+    system.terminate()
   }
 
   "An HelloAkkaActor" should "be able to set a new greeting" in {
